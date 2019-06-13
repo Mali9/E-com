@@ -10,7 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix' => 'admin'], function () {
+    // Config::set('auth.defines','admin');
+    Route::group(['middleware' => 'admin:admin'], function () {
+        Route::get('/','HomeController@index');
+    });
+   
 });
+Route::get('/login','HomeController@login');

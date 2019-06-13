@@ -39,6 +39,9 @@ return [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
+        ], 'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
         ],
 
         'api' => [
@@ -70,10 +73,10 @@ return [
             'model' => App\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'admins' => [
+            'driver' => 'database',
+            'table' => 'admins',
+        ],
     ],
 
     /*
