@@ -10,11 +10,19 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['prefix' => 'admin'], function () {
     // Config::set('auth.defines','admin');
+    Route::group(['middleware' => ['lang']], function () {
+        
     Route::group(['middleware' => 'admin:admin'], function () {
         Route::get('/','HomeController@index');
     });
    
-});
+
 Route::get('/login','HomeController@login');
+Route::get('set_lang/{locale}', function ($locale) {
+    //return $locale;
+    session()->put('lang', $locale);
+    return redirect()->back();
+});
+
+});
