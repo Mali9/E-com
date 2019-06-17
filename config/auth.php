@@ -48,6 +48,10 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+        'AdminApi' => [
+            'driver' => 'token',
+            'provider' => 'admins',
+        ],
     ],
 
     /*
